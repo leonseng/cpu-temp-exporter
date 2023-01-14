@@ -61,7 +61,7 @@ This code requires the following dependencies:
 
 1. Clone the repository and navigate to the project folder:
     ```
-    git clone https://github.com/leonseng/cpu-temperature-exporter.git
+    git clone https://github.com/leonseng/cpu-temp-exporter.git
     cd cpu-temperature-exporter
     ```
 1. Build the binary. The following will produce a binary named `cpu_temp_exporter` that runs on Linux platform with AMD64 architecture.
