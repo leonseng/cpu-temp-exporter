@@ -7,6 +7,7 @@ When the service is running, Prometheus will be able to scrape the metrics by vi
 Here is an example of the metrics that will be returned:
 ```
 $ curl -s http://localhost:9090/metrics
+cpu_temp_sensors_up 1
 cpu_temp{core="0", hostname="hostname"} 60.0
 cpu_temp{core="1", hostname="hostname"} 60.0
 cpu_temp{core="2", hostname="hostname"} 60.0
