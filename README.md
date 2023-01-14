@@ -30,12 +30,7 @@ It runs the `sensors` command from the [lm_sensors](https://wiki.archlinux.org/t
     ```
     sudo yum install lm_sensors
     ```
-1. Download the latest binary from the [Releases](https://github.com/leonseng/cpu-temp-exporter/releases) page
-1. Move the binary to `/usr/local/bin` and make it executable
-    ```
-    sudo mv cpu_temp_exporter /usr/local/bin
-    sudo chmod +x /usr/local/bin/cpu_temp_exporter
-    ```
+1. Install the latest version from the [Releases](https://github.com/leonseng/cpu-temp-exporter/releases) page
 1. Run the binary and you should see the server listening on port `9090`
     ```
     $ cpu_temp_exporter
