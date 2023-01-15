@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
 	"os"
@@ -11,6 +12,10 @@ import (
 )
 
 func main() {
+	var port int
+	flag.IntVar(&port, "p", 80, "port to listen on")
+	flag.Parse()
+
 	_, err := exec.LookPath("sensors")
 	if err != nil {
 		fmt.Println("lm_sensors package is not installed.")
@@ -71,7 +76,7 @@ func main() {
 	})
 
 	// start the HTTP server
-	addr := ":9090"
+	addr := fmt.Sprintf(":%d", port)
 	fmt.Printf("Listening on %s\n", addr)
 	http.ListenAndServe(addr, nil)
 }

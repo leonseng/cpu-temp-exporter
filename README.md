@@ -2,11 +2,11 @@
 
 This Go code exposes an HTTP endpoint that can be scraped by Prometheus for CPU temperature metrics.
 
-When the service is running, Prometheus will be able to scrape the metrics by visiting http://localhost:9090/metrics or the hostname or IP of the machine where the service is running instead of localhost.
+When the service is running, Prometheus will be able to scrape the metrics by visiting http://localhost/metrics or the hostname or IP of the machine where the service is running instead of localhost.
 
 Here is an example of the metrics that will be returned:
 ```sh
-$ curl -s http://localhost:9090/metrics
+$ curl -s http://localhost/metrics
 cpu_temp_sensors_up 1
 cpu_temp{core="0", hostname="hostname"} 60.0
 cpu_temp{core="1", hostname="hostname"} 60.0
@@ -31,14 +31,15 @@ It runs the `sensors` command from the [lm_sensors](https://wiki.archlinux.org/t
     sudo yum install lm_sensors
     ```
 1. Install the latest version from the [Releases](https://github.com/leonseng/cpu-temp-exporter/releases) page
-1. Run the binary and you should see the server listening on port `9090`
+1. Run the binary and you should see the server listening on port `80`
     ```
     $ cpu_temp_exporter
-    Listening on :9090
+    Listening on :80
     ```
+    You can customize the port to listen on by passing the `-p <port number>` flag when running the binary.
 1. Verify by accessing the `/metrics` endpoint
     ```sh
-    $ curl -s http://localhost:9090/metrics
+    $ curl -s http://localhost/metrics
     cpu_temp_sensors_up 1
     cpu_temp{core="0", hostname="hostname"} 60.0
     cpu_temp{core="1", hostname="hostname"} 60.0
@@ -80,4 +81,4 @@ Run the binary:
 go run main.go
 ```
 
-The service will start running on port 9090, and Prometheus will be able to scrape the metrics by visiting http://localhost:9090/metrics or the hostname or IP of the machine where the service is running instead of localhost.
+The service will start running on port 80, and Prometheus will be able to scrape the metrics by visiting http://localhost:80/metrics or the hostname or IP of the machine where the service is running instead of localhost.
